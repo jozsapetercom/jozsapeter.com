@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Józsa Péter – Online Pszichoterapeuta | Kognitív viselkedésterápia magyarul</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Kalam:wght@700&display=swap">
+<style>
+:root{
+  --ground:#ECE3DD;
+  --surface:#F6F0EC;
+  --ink:#1E2427;
+  --muted:#5E5853;
+  --line:#D3C7BF;
+  --accent:#24554F;
+  --accent-ink:#F6F0EC;
+  --accent-soft:#D6E1DB;
+  --photo:#E6E0DC;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --hand:"Kalam", "Segoe Print", "Bradley Hand", cursive;
+  --wrap:1160px;
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#161A1B; --surface:#1F2527; --ink:#EDE6E1; --muted:#A8A09A;
+    --line:#343C3E; --accent:#8DC3B7; --accent-ink:#10201D; --accent-soft:#233532; --photo:#2A3033;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#161A1B; --surface:#1F2527; --ink:#EDE6E1; --muted:#A8A09A;
+  --line:#343C3E; --accent:#8DC3B7; --accent-ink:#10201D; --accent-soft:#233532; --photo:#2A3033;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0;font-weight:700;letter-spacing:-0.015em}
+h2{font-size:clamp(1.9rem,3.6vw,2.75rem)}
+h3{font-size:1.25rem;font-weight:600;letter-spacing:0}
+p{margin:0}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lead{font-size:1.2rem;color:var(--muted);max-width:60ch}
+.prose{display:grid;gap:1em;max-width:64ch}
+section{padding-block:clamp(64px,9vw,112px)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(32px,5vw,56px);max-width:760px}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.brand{font-family:var(--hand);font-weight:700;font-size:1.6rem;text-decoration:none;line-height:1}
+.nav{display:flex;align-items:center;gap:clamp(12px,2.4vw,30px);font-size:.92rem;font-weight:500}
+.nav a{text-decoration:none}
+.nav a:not(.btn):hover{color:var(--accent)}
+@media (max-width:760px){.nav a:not(.btn){display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;transition:transform .15s ease,background .15s ease;border:1.5px solid var(--accent)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{color:var(--ink);border-color:var(--line);background:transparent}
+.btn-ghost:hover{border-color:var(--accent)}
+.btn-sm{padding:9px 16px;font-size:.9rem}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,88px) clamp(56px,8vw,96px)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(32px,6vw,80px);align-items:center}
+.hero-copy{display:grid;gap:26px}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem)}
+.hero h1 .hand{font-family:var(--hand);font-weight:700;color:var(--accent);letter-spacing:0;display:inline-block;transform:rotate(-2deg)}
+.roles{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.roles li{font-size:.88rem;padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.hero-note{font-size:.92rem;color:var(--muted)}
+.portrait{position:relative;justify-self:end;width:100%;max-width:430px}
+.portrait figure{margin:0;background:var(--photo);border-radius:220px 220px var(--radius) var(--radius);overflow:hidden;aspect-ratio:359/514}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait figcaption{position:absolute;left:-18px;bottom:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:.85rem;line-height:1.35;box-shadow:0 10px 30px -12px rgba(0,0,0,.25)}
+.portrait figcaption strong{display:block;font-family:var(--display);font-size:1rem}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.portrait{justify-self:start;max-width:340px}.portrait figcaption{left:12px}}
+
+/* facts */
+.facts{border-block:1px solid var(--line);background:var(--surface)}
+.facts dl{display:grid;grid-template-columns:repeat(4,1fr);margin:0}
+.facts dl>div{padding:24px clamp(12px,2vw,28px);border-left:1px solid var(--line)}
+.facts dl>div:first-child{border-left:0;padding-left:0}
+.facts dt{font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1.2}
+.facts dd{margin:4px 0 0;color:var(--muted);font-size:.92rem;line-height:1.45}
+@media (max-width:860px){.facts dl{grid-template-columns:1fr 1fr}.facts dl>div{padding-left:0;border-left:0;border-top:1px solid var(--line)}.facts dl>div:nth-child(-n+2){border-top:0}.facts dl>div:nth-child(2n){padding-left:20px;border-left:1px solid var(--line)}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:start}
+.about-grid blockquote{margin:0;font-family:var(--display);font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.3;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+.about-grid blockquote::before{content:"„";display:block;font-family:var(--hand);color:var(--accent);font-size:4rem;line-height:.6;margin-bottom:10px}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}}
+
+/* topics */
+.topics{background:var(--surface);border-block:1px solid var(--line)}
+.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.topic{background:var(--surface);padding:30px 28px;display:grid;gap:10px;align-content:start}
+.topic svg{width:40px;height:40px;color:var(--accent);margin-bottom:6px}
+.topic p{color:var(--muted);font-size:.97rem}
+@media (max-width:860px){.topic-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.topic-grid{grid-template-columns:1fr}}
+
+/* methods */
+.stack{display:grid;gap:12px}
+.stack-top{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.layer{border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;gap:8px;align-content:start;background:var(--surface)}
+.layer .tag{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.layer p{font-size:.97rem;color:var(--muted)}
+.layer-base{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px}
+.layer-base .tag,.layer-base p{color:var(--accent-ink);opacity:.85}
+.layer-base h3{font-size:1.4rem}
+.stack-label{display:flex;align-items:center;gap:12px;font-size:.8rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.stack-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.goal{margin-top:40px;font-size:1.15rem;max-width:62ch;padding-left:20px;border-left:3px solid var(--accent)}
+@media (max-width:760px){.stack-top{grid-template-columns:1fr}}
+
+/* online */
+.online-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.who{list-style:none;margin:0;padding:0;display:grid}
+.who li{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;padding:22px 0;border-top:1px solid var(--line)}
+.who li:last-child{border-bottom:1px solid var(--line)}
+.who .mark{grid-row:span 2;width:38px;height:38px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.who .mark svg{width:20px;height:20px}
+.who p{color:var(--muted);font-size:.98rem}
+@media (max-width:860px){.online-grid{grid-template-columns:1fr}}
+
+/* credentials */
+.cred{background:var(--accent);color:var(--accent-ink)}
+.cred .eyebrow{color:var(--accent-ink);opacity:.8}
+.cred-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(32px,6vw,80px);align-items:center}
+.cred .prose{color:var(--accent-ink)}
+.badge{border:1.5px solid color-mix(in srgb,var(--accent-ink) 40%,transparent);border-radius:var(--radius);padding:28px;display:grid;gap:14px}
+.badge .big{font-family:var(--display);font-size:2.6rem;font-weight:700;line-height:1}
+.badge a{font-weight:600;text-underline-offset:4px}
+@media (max-width:860px){.cred-grid{grid-template-columns:1fr}}
+
+/* courses */
+.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px)}
+.course{display:grid;grid-template-rows:auto 1fr;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
+.course:hover{transform:translateY(-3px);border-color:var(--accent)}
+.course img{width:100%;aspect-ratio:493/277;object-fit:cover}
+.course-body{padding:24px;display:grid;gap:10px;align-content:start}
+.course-body p{color:var(--muted);font-size:.97rem}
+.course-body .more{margin-top:6px;color:var(--accent);font-weight:600;font-size:.95rem}
+@media (max-width:760px){.course-grid{grid-template-columns:1fr}}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:start}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-family:var(--display);font-weight:600;font-size:1.15rem;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:1.5rem;color:var(--accent);font-weight:400;transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{padding:0 0 22px;color:var(--muted);max-width:62ch}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+
+/* contact */
+.contact-card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.contact-card h2 .hand{font-family:var(--hand);color:var(--accent);letter-spacing:0}
+.contact-side{display:grid;gap:14px}
+.contact-side .btn{justify-content:center}
+.phone{font-size:.92rem;color:var(--muted);text-align:center}
+.phone b{color:var(--ink);font-variant-numeric:tabular-nums;user-select:all}
+@media (max-width:860px){.contact-card{grid-template-columns:1fr}}
+
+/* footer */
+footer{padding-block:48px 40px;border-top:1px solid var(--line);font-size:.92rem;color:var(--muted)}
+.foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+.socials{display:flex;flex-wrap:wrap;gap:8px}
+.socials a{padding:7px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);font-weight:500}
+.socials a:hover{border-color:var(--accent);color:var(--accent)}
+.crisis{margin-top:28px;padding:16px 18px;border-radius:12px;background:var(--surface);border:1px solid var(--line);max-width:760px;line-height:1.5}
+.crisis b{color:var(--ink)}
+</style>
+<meta name="description" content="Józsa Péter CTAA akkreditált kognitív viselkedésterapeuta. Online pszichoterápia magyarul, külföldön élőknek is: szorongás, pánik, depresszió, tinnitus, krónikus fájdalom, felnőttkori ADHD. Ingyenes előzetes konzultáció.">
+<link rel="canonical" href="https://jozsapeter.com/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Józsa Péter">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hu_HU">
+<meta property="og:site_name" content="Józsa Péter – Online Pszichoterapeuta">
+<meta property="og:title" content="Józsa Péter – Online kognitív viselkedésterápia magyarul">
+<meta property="og:description" content="CTAA akkreditált kognitív pszichoterapeuta. Online terápia otthonából, külföldön élő magyaroknak is. Az előzetes konzultáció ingyenes.">
+<meta property="og:url" content="https://jozsapeter.com/">
+<meta property="og:image" content="https://jozsapeter.com/images/jozsa-peter-pszichoterapeuta.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#24554F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2324554F'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23ECE3DD' text-anchor='middle'%3EJP%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jozsapeter.com/#person",
+      "name": "Józsa Péter",
+      "jobTitle": "Kognitív viselkedésterapeuta, pszichoterapeuta",
+      "url": "https://jozsapeter.com/",
+      "image": "https://jozsapeter.com/images/jozsa-peter-pszichoterapeuta.jpg",
+      "knowsLanguage": ["hu", "en"],
+      "knowsAbout": ["Kognitív viselkedésterápia", "Sématerápia", "ACT", "DBT", "Mindfulness", "Szorongás", "Pánikzavar", "Depresszió", "Tinnitus", "Krónikus fájdalom", "Felnőttkori ADHD"],
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61577354011635",
+        "https://www.instagram.com/kognitiv_terapia/",
+        "https://www.youtube.com/@KognitivPszichologia"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://jozsapeter.com/#service",
+      "name": "Józsa Péter – Online Pszichoterápia",
+      "url": "https://jozsapeter.com/",
+      "image": "https://jozsapeter.com/images/jozsa-peter-pszichoterapeuta.jpg",
+      "description": "Online kognitív viselkedésterápia magyar nyelven, Magyarországon és külföldön élő klienseknek.",
+      "telephone": "+36209800480",
+      "areaServed": "Worldwide",
+      "availableLanguage": ["Hungarian", "English"],
+      "founder": { "@id": "https://jozsapeter.com/#person" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Ingyenes az első konzultáció?", "acceptedAnswer": { "@type": "Answer", "text": "Igen. Az előzetes konzultáció ingyenes: átbeszéljük, mi hozta Önt, és hogy a kognitív viselkedésterápia jó irány-e az Ön helyzetében." } },
+        { "@type": "Question", "name": "Külföldről is igénybe vehető az online terápia?", "acceptedAnswer": { "@type": "Answer", "text": "Igen. A terápia teljes egészében online, magyar nyelven zajlik, így a világ bármely pontjáról elérhető. 2006 óta magam is külföldön élek." } },
+        { "@type": "Question", "name": "Mi az a kognitív viselkedésterápia (CBT)?", "acceptedAnswer": { "@type": "Answer", "text": "A CBT strukturált, célorientált módszer, amely a gondolatok, érzések és viselkedés összefüggéseivel dolgozik. Szorongás, pánik és depresszió esetén az egyik legjobban kutatott terápiás irány." } },
+        { "@type": "Question", "name": "Hol ellenőrizhető a szakmai akkreditáció?", "acceptedAnswer": { "@type": "Answer", "text": "CTAA akkreditált kognitív pszichoterapeuta vagyok, tagságom a CTAA nyilvános tagjegyzékében ellenőrizhető." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Józsa Péter – kezdőlap">Józsa Péter</a>
+    <nav class="nav" aria-label="Fő navigáció">
+      <a href="#rolam">Rólam</a>
+      <a href="#terapia">Terápia</a>
+      <a href="#online-terapia">Online terápia</a>
+      <a href="#kurzusok">Kurzusok</a>
+      <a class="btn btn-primary btn-sm" href="#kapcsolat">Kapcsolat</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Online pszichoterapeuta · CTAA akkreditált</p>
+        <h1 id="hero-title">Online kognitív viselkedés&shy;terápia, <span class="hand">magyarul,</span> bárhol is éljen</h1>
+        <p class="lead">Modern pszichológiai megközelítések az Ön fejlődéséért. Strukturált, gyakorlatias terápia, amely kézzelfogható eszközöket ad a változáshoz.</p>
+        <ul class="roles" aria-label="Szakmai szerepek">
+          <li>Pszichoterapeuta</li>
+          <li>Kognitív viselkedésterapeuta</li>
+          <li>Mindfulness oktató</li>
+          <li>Cogmed tréningpartner</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScs-Gzpy_N1nwnqYfv2WJibTd8qqVXiwEIcYtgvNnlaK4Mc6Q/viewform?usp=sharing&amp;ouid=115343255977929714990" target="_blank" rel="noopener">Ingyenes előzetes konzultáció
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#terapia">Miben segíthetek?</a>
+        </div>
+        <p class="hero-note">Az előzetes konzultáció ingyenes és kötelezettségmentes.</p>
+      </div>
+      <div class="portrait">
+        <figure>
+          <img src="images/jozsa-peter-pszichoterapeuta.jpg" alt="Józsa Péter kognitív viselkedésterapeuta" width="359" height="514" fetchpriority="high">
+        </figure>
+        <figcaption><strong>Józsa Péter</strong>Kognitív pszichoterapeuta</figcaption>
+      </div>
+    </div>
+  </section>
+
+  <div class="facts">
+    <div class="wrap">
+      <dl>
+        <div><dt>2006 óta</dt><dd>élek külföldön, ismerem a kint élők kihívásait</dd></div>
+        <div><dt>UK képzés</dt><dd>felsőfokú tanulmányok az Egyesült Királyságban</dd></div>
+        <div><dt>CTAA</dt><dd>akkreditált kognitív pszichoterapeuta</dd></div>
+        <div><dt>Krízisellátás</dt><dd>gyermekektől a felnőttekig, kritikus helyzetekben</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <section id="rolam" aria-labelledby="rolam-title">
+    <div class="wrap about-grid">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Rólam</p>
+        <h2 id="rolam-title">Szakmai és személyes tapasztalat egy helyen</h2>
+      </div>
+      <div class="prose">
+        <blockquote>A változás nem csupán személyiség vagy akaraterő kérdése. A megfelelő támogatás és a jól strukturált szakmai eszközök eredménye.</blockquote>
+        <p>2006 óta élek külföldön, így nemcsak szakmai, hanem mély személyes tapasztalattal is rendelkezem azokról a kihívásokról, identitásbeli kérdésekről és lehetőségekről, amelyeket a külföldi életvitel tartogat.</p>
+        <p>Felsőfokú tanulmányaimat az Egyesült Királyságban végeztem, ahol a legmodernebb nemzetközi szemléletmódokat és terápiás kultúrákat sajátítottam el. Ezt a széleskörű látásmódot ötvözöm a gyakorlatias segítséggel.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="terapia" class="topics" aria-labelledby="terapia-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Terápia</p>
+        <h2 id="terapia-title">Miben tudok segíteni?</h2>
+        <p class="lead">A leggyakoribb témák, amelyekkel hozzám fordulnak. Mindegyiknél bizonyítékokon alapuló kognitív viselkedésterápiás módszerekkel dolgozom.</p>
+      </div>
+      <div class="topic-grid">
+        <article class="topic">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20c3-9 8 9 11 0s7-10 9-2-6 12-2 12 9-8 10-12"/><circle cx="6" cy="20" r="1.5" fill="currentColor"/></svg>
+          <h3>Szorongásos zavarok</h3>
+          <p>Generalizált szorongás, aggodalmaskodás, szociális szorongás. Megtanuljuk kezelni a szorongást fenntartó gondolati és viselkedési köröket.</p>
+        </article>
+        <article class="topic">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21a6 6 0 0 1 1-12 8 8 0 0 1 15 2 5 5 0 0 1 1 10z"/><path d="M14 26l-2 5M21 26l-2 5M28 26l-2 5"/></svg>
+          <h3>Depresszió</h3>
+          <p>Lehangoltság, motivációvesztés, negatív gondolati minták. Lépésről lépésre építjük vissza az aktivitást és az örömforrásokat.</p>
+        </article>
+        <article class="topic">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 30c-3 0-4-3-4-5 0-3 3-4 3-8a7 7 0 0 1 14 0c0 4-4 5-4 9 0 2-2 4-5 4"/><path d="M18 17a3 3 0 0 1 5 1"/><path d="M31 14c1.5 2 1.5 6 0 8M34 11c3 4 3 10 0 14"/></svg>
+          <h3>Tinnitus (fülcsengés)</h3>
+          <p>A fülcsengéssel járó stressz, alvászavar és figyelmi túlterhelés csökkentése CBT-alapú módszerekkel.</p>
+        </article>
+        <article class="topic">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="20" r="6"/><path d="M20 4v6M20 30v6M4 20h6M30 20h6"/><path d="M17 7l3-3 3 3M17 33l3 3 3-3M7 17l-3 3 3 3M33 17l3 3-3 3"/></svg>
+          <h3>Pánikzavar és agorafóbia</h3>
+          <p>A pánikrohamok megértése és a kerülő viselkedés fokozatos leépítése, hogy újra szabadon mozoghasson.</p>
+        </article>
+        <article class="topic">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="20" r="3" fill="currentColor"/><circle cx="20" cy="20" r="8"/><path d="M20 7a13 13 0 0 1 13 13M7 20a13 13 0 0 1 6-11M27 31a13 13 0 0 1-14 0"/></svg>
+          <h3>Krónikus fájdalmak kezelése</h3>
+          <p>A fájdalommal való együttélés terheinek csökkentése: figyelem, stressz, aktivitás és életminőség.</p>
+        </article>
+        <article class="topic">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="10" r="2"/><circle cx="7" cy="28" r="2"/><circle cx="14" cy="19" r="2"/><path d="M10 11l8 7M9 27l9-7M16 19h6"/><path d="M22 19h12M29 14l5 5-5 5"/></svg>
+          <h3>Felnőttkori ADHD</h3>
+          <p>Szervezés, időbeosztás, halogatás és figyelem. Gyakorlati stratégiák a mindennapi működéshez.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="modszerek" aria-labelledby="modszerek-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Módszerek</p>
+        <h2 id="modszerek-title">Személyre szabott terápiás eszköztár</h2>
+        <p class="lead">Minden élethelyzet más, ezért nem hiszek az egyenválaszokban. A kognitív viselkedésterápia (CBT) stabil alapjaira építve, az egyéni igényekhez igazítva alkalmazom a legmodernebb „harmadik hullámos” módszereket.</p>
+      </div>
+      <div class="stack" role="list">
+        <p class="stack-label">Harmadik hullámos módszerek</p>
+        <div class="stack-top">
+          <div class="layer" role="listitem">
+            <span class="tag">Mélyebb minták</span>
+            <h3>Sématerápia</h3>
+            <p>A mélyen gyökerező, ismétlődő életviteli elakadások és érzelmi minták feltárására.</p>
+          </div>
+          <div class="layer" role="listitem">
+            <span class="tag">Rugalmasság</span>
+            <h3>ACT – Elfogadás és Elköteleződés Terápia</h3>
+            <p>A pszichológiai rugalmasság fejlesztésére és az értékvezérelt élet kialakítására.</p>
+          </div>
+          <div class="layer" role="listitem">
+            <span class="tag">Érzelemszabályozás</span>
+            <h3>DBT – Dialektikus Viselkedésterápia</h3>
+            <p>Az érzelemszabályozás és a hatékony stresszkezelés támogatására.</p>
+          </div>
+        </div>
+        <div class="layer layer-base" role="listitem">
+          <div>
+            <span class="tag">Az alap</span>
+            <h3>Kognitív viselkedésterápia (CBT)</h3>
+          </div>
+          <p>Strukturált, célorientált, kutatásokkal alátámasztott keret.</p>
+        </div>
+      </div>
+      <p class="goal">Célom, hogy klienseim ne csak megértsék a problémáikat, hanem kézzelfogható eszközöket kapjanak azok megoldásához.</p>
+    </div>
+  </section>
+
+  <section id="online-terapia" class="topics" aria-labelledby="online-title">
+    <div class="wrap online-grid">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Online terápia</p>
+        <h2 id="online-title">Szakértelem az Ön otthonában</h2>
+        <p class="lead">A magánrendelésem online formában érhető el, ami teljes rugalmasságot és diszkréciót biztosít.</p>
+      </div>
+      <ul class="who">
+        <li>
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>
+          <h3>Akik a megszokott környezetet preferálják</h3>
+          <p>Azoknak, akik saját, otthoni közegükben érzik magukat a legnyitottabbnak a fejlődésre.</p>
+        </li>
+        <li>
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+          <h3>Külföldön élő magyarok</h3>
+          <p>Akik anyanyelvükön szeretnének szakértő segítséget kapni, egy olyan terapeutától, aki maga is ismeri a külföldi létet.</p>
+        </li>
+        <li>
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></span>
+          <h3>Elfoglalt szakemberek</h3>
+          <p>Akiknek fontos az időhatékonyság és a rugalmas beosztás.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cred" aria-labelledby="cred-title">
+    <div class="wrap cred-grid">
+      <div class="prose">
+        <p class="eyebrow">Szakmai háttér és garancia</p>
+        <h2 id="cred-title">Stabil támasz a legnehezebb pillanatokban is</h2>
+        <p>A magánrendelésem mellett egy krízisellátó központban is dolgozom, ahol a legkülönfélébb életkori spektrumokban, gyermekektől a felnőttekig támogatom a hozzám fordulókat kritikus helyzetekben.</p>
+        <p>Ez a tapasztalat segít abban, hogy a legnehezebb pillanatokban is stabil támaszt nyújthassak.</p>
+      </div>
+      <div class="badge">
+        <span class="big">CTAA</span>
+        <p>Akkreditált kognitív pszichoterapeuta vagyok. Szakmai tagságom és akkreditációm nyilvános és ellenőrizhető.</p>
+        <a href="https://www.ctaamembers.com/ctaa-directory" target="_blank" rel="noopener">Ellenőrzés a CTAA tagjegyzékében →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="kurzusok" aria-labelledby="kurzusok-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Kurzusok</p>
+        <h2 id="kurzusok-title">Önsegítő tanfolyamok a Webuni platformon</h2>
+        <p class="lead">Ha a saját tempójában szeretne elindulni, a kognitív viselkedésterápia eszközeit online kurzusokon is elsajátíthatja.</p>
+      </div>
+      <div class="course-grid">
+        <a class="course" href="https://webuni.hu/kepzes/a-gondolatoktol-a-valtozasig-kognitiv-viselkedesterapia-onsegito-kurzus-7-lepesben" target="_blank" rel="noopener">
+          <img src="images/kurzus-gondolatoktol-a-valtozasig.jpg" alt="A gondolatoktól a változásig – kognitív viselkedésterápia önsegítő kurzus borítóképe" width="493" height="277" loading="lazy">
+          <div class="course-body">
+            <h3>A gondolatoktól a változásig</h3>
+            <p>Kognitív viselkedésterápia önsegítő kurzus 7 lépésben.</p>
+            <span class="more">Megnézem a Webunin →</span>
+          </div>
+        </a>
+        <a class="course" href="https://webuni.hu/kepzes/ut-a-nyugalomhoz-panik-es-szorongas-kezelese-a-kognitiv-viselkedesterapia-modszerevel" target="_blank" rel="noopener">
+          <img src="images/kurzus-ut-a-nyugalomhoz.jpg" alt="Út a nyugalomhoz – pánik és szorongás kezelése kurzus borítóképe" width="493" height="277" loading="lazy">
+          <div class="course-body">
+            <h3>Út a nyugalomhoz</h3>
+            <p>Pánik és szorongás kezelése a kognitív viselkedésterápia módszereivel.</p>
+            <span class="more">Megnézem a Webunin →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="gyik" class="topics" aria-labelledby="gyik-title">
+    <div class="wrap faq-grid">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">GYIK</p>
+        <h2 id="gyik-title">Gyakori kérdések</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Ingyenes az első konzultáció?</summary>
+          <p>Igen. Az előzetes konzultáció ingyenes: átbeszéljük, mi hozta Önt, és hogy a kognitív viselkedésterápia jó irány-e az Ön helyzetében.</p>
+        </details>
+        <details>
+          <summary>Külföldről is igénybe vehető az online terápia?</summary>
+          <p>Igen. A terápia teljes egészében online, magyar nyelven zajlik, így a világ bármely pontjáról elérhető. 2006 óta magam is külföldön élek, így a kint élők helyzetét belülről ismerem.</p>
+        </details>
+        <details>
+          <summary>Mi az a kognitív viselkedésterápia (CBT)?</summary>
+          <p>A CBT strukturált, célorientált módszer, amely a gondolatok, érzések és viselkedés összefüggéseivel dolgozik. Szorongás, pánik és depresszió esetén az egyik legjobban kutatott terápiás irány. Szükség szerint sématerápiás, ACT és DBT elemekkel egészítem ki.</p>
+        </details>
+        <details>
+          <summary>Hol ellenőrizhető a szakmai akkreditáció?</summary>
+          <p>CTAA akkreditált kognitív pszichoterapeuta vagyok, tagságom a <a href="https://www.ctaamembers.com/ctaa-directory" target="_blank" rel="noopener">CTAA nyilvános tagjegyzékében</a> ellenőrizhető.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="kapcsolat" aria-labelledby="kapcsolat-title">
+    <div class="wrap">
+      <div class="contact-card">
+        <div class="prose">
+          <p class="eyebrow">Kapcsolat</p>
+          <h2 id="kapcsolat-title">Az előzetes konzultáció <span class="hand">ingyenes.</span></h2>
+          <p class="lead">Ha úgy érzi, szüksége van valakire, aki értő figyelemmel és strukturált szakértelemmel kíséri útján, forduljon hozzám bizalommal.</p>
+        </div>
+        <div class="contact-side">
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScs-Gzpy_N1nwnqYfv2WJibTd8qqVXiwEIcYtgvNnlaK4Mc6Q/viewform?usp=sharing&amp;ouid=115343255977929714990" target="_blank" rel="noopener">Időpontot kérek</a>
+          <a class="btn btn-ghost" href="https://wa.me/36209800480" target="_blank" rel="noopener">Írjon WhatsAppon</a>
+          <p class="phone">WhatsApp: <b>+36 20 980 0480</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top">Józsa Péter</a>
+        <p>Online pszichoterapeuta · Kognitív viselkedésterapeuta</p>
+      </div>
+      <nav class="socials" aria-label="Közösségi média">
+        <a href="https://www.facebook.com/profile.php?id=61577354011635" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/kognitiv_terapia/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@KognitivPszichologia" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://wa.me/36209800480" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+    <p class="crisis"><b>Krízishelyzetben</b> ne várjon időpontra: hívja a <b>112</b>-t, vagy Magyarországon a Lelki Elsősegély-vonalat a <b>116-123</b> számon, éjjel-nappal ingyenesen. Külföldön a helyi segélyhívó számot hívja.</p>
+    <p style="margin-top:20px">© 2026 Józsa Péter</p>
+  </div>
+</footer>
+</body>
+</html>
