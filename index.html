@@ -109,6 +109,11 @@ section{padding-block:clamp(64px,9vw,112px)}
 .topic{background:var(--surface);padding:30px 28px;display:grid;gap:10px;align-content:start}
 .topic svg{width:40px;height:40px;color:var(--accent);margin-bottom:6px}
 .topic p{color:var(--muted);font-size:.97rem}
+a.topic{text-decoration:none;color:inherit;transition:background .2s ease}
+a.topic:hover{background:var(--ground)}
+a.topic:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+.topic .more{color:var(--accent);font-weight:600;font-size:.93rem;margin-top:4px}
+a.topic:hover .more{text-decoration:underline;text-underline-offset:4px}
 @media (max-width:860px){.topic-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.topic-grid{grid-template-columns:1fr}}
 
@@ -320,36 +325,42 @@ footer{padding-block:48px 40px;border-top:1px solid var(--line);font-size:.92rem
         <p class="lead">A leggyakoribb témák, amelyekkel hozzám fordulnak. Mindegyiknél bizonyítékokon alapuló kognitív viselkedésterápiás módszerekkel dolgozom.</p>
       </div>
       <div class="topic-grid">
-        <article class="topic">
+        <a class="topic" href="https://szorongas.kognitiv-terapia.hu/" target="_blank" rel="noopener">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20c3-9 8 9 11 0s7-10 9-2-6 12-2 12 9-8 10-12"/><circle cx="6" cy="20" r="1.5" fill="currentColor"/></svg>
           <h3>Szorongásos zavarok</h3>
           <p>Generalizált szorongás, aggodalmaskodás, szociális szorongás. Megtanuljuk kezelni a szorongást fenntartó gondolati és viselkedési köröket.</p>
-        </article>
-        <article class="topic">
+          <span class="more">Bővebben →</span>
+        </a>
+        <a class="topic" href="https://depresszio.kognitiv-terapia.hu/" target="_blank" rel="noopener">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21a6 6 0 0 1 1-12 8 8 0 0 1 15 2 5 5 0 0 1 1 10z"/><path d="M14 26l-2 5M21 26l-2 5M28 26l-2 5"/></svg>
           <h3>Depresszió</h3>
           <p>Lehangoltság, motivációvesztés, negatív gondolati minták. Lépésről lépésre építjük vissza az aktivitást és az örömforrásokat.</p>
-        </article>
-        <article class="topic">
+          <span class="more">Bővebben →</span>
+        </a>
+        <a class="topic" href="https://tinnitus.kognitiv-terapia.hu/" target="_blank" rel="noopener">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 30c-3 0-4-3-4-5 0-3 3-4 3-8a7 7 0 0 1 14 0c0 4-4 5-4 9 0 2-2 4-5 4"/><path d="M18 17a3 3 0 0 1 5 1"/><path d="M31 14c1.5 2 1.5 6 0 8M34 11c3 4 3 10 0 14"/></svg>
           <h3>Tinnitus (fülcsengés)</h3>
           <p>A fülcsengéssel járó stressz, alvászavar és figyelmi túlterhelés csökkentése CBT-alapú módszerekkel.</p>
-        </article>
-        <article class="topic">
+          <span class="more">Bővebben →</span>
+        </a>
+        <a class="topic" href="https://szorongas.kognitiv-terapia.hu/" target="_blank" rel="noopener">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="20" r="6"/><path d="M20 4v6M20 30v6M4 20h6M30 20h6"/><path d="M17 7l3-3 3 3M17 33l3 3 3-3M7 17l-3 3 3 3M33 17l3 3-3 3"/></svg>
           <h3>Pánikzavar és agorafóbia</h3>
           <p>A pánikrohamok megértése és a kerülő viselkedés fokozatos leépítése, hogy újra szabadon mozoghasson.</p>
-        </article>
-        <article class="topic">
+          <span class="more">Bővebben →</span>
+        </a>
+        <a class="topic" href="https://mindfulness.kognitiv-terapia.hu/" target="_blank" rel="noopener">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="20" r="3" fill="currentColor"/><circle cx="20" cy="20" r="8"/><path d="M20 7a13 13 0 0 1 13 13M7 20a13 13 0 0 1 6-11M27 31a13 13 0 0 1-14 0"/></svg>
           <h3>Krónikus fájdalmak kezelése</h3>
           <p>A fájdalommal való együttélés terheinek csökkentése: figyelem, stressz, aktivitás és életminőség.</p>
-        </article>
-        <article class="topic">
+          <span class="more">Bővebben →</span>
+        </a>
+        <a class="topic" href="https://adhd.kognitiv-terapia.hu/" target="_blank" rel="noopener">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="10" r="2"/><circle cx="7" cy="28" r="2"/><circle cx="14" cy="19" r="2"/><path d="M10 11l8 7M9 27l9-7M16 19h6"/><path d="M22 19h12M29 14l5 5-5 5"/></svg>
           <h3>Felnőttkori ADHD</h3>
           <p>Szervezés, időbeosztás, halogatás és figyelem. Gyakorlati stratégiák a mindennapi működéshez.</p>
-        </article>
+          <span class="more">Bővebben →</span>
+        </a>
       </div>
     </div>
   </section>
